@@ -11,7 +11,6 @@ member = Member.create(
   last_name:  "jones",
   username:   "bjones", 
   email:      "barbara.jones@gmail.com"
-
   )
 
 member2 = Member.create(

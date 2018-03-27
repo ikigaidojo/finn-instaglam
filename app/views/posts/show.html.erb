@@ -1,8 +1,15 @@
 <p id="notice"><%= notice %></p>
 
+<% if @post.profile_image.nil? %>
+          <p> 
+            <%= member.first_name.capitalize %> has no avatar image 
+          </p>
+          <br>
+        <% else %>
+          <%= image_tag attachment_url(@post, :profile_image, :fill, 600, 600) %>
+        <% end %>
 <p>
-  <strong>Caption:</strong>
-  <%= @post.caption %>
+  <%= @post.caption.capitalize %>
 </p>
 
 <%= link_to 'Edit', edit_post_path(@post) %> |

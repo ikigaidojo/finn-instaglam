@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180322074542) do
+ActiveRecord::Schema.define(version: 20180326033353) do
 
   create_table "members", force: :cascade do |t|
     t.string "first_name"
@@ -20,6 +20,10 @@ ActiveRecord::Schema.define(version: 20180322074542) do
     t.string "mobile_phone"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "avatar_id"
+    t.string "avatar_filename"
+    t.string "avatar_content_size"
+    t.string "avatar_content_type"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -28,6 +32,7 @@ ActiveRecord::Schema.define(version: 20180322074542) do
     t.datetime "updated_at", null: false
     t.integer "member_id"
     t.boolean "private", default: false
+    t.string "profile_image_id"
   end
 
 end
