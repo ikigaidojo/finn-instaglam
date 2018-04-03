@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Posts</h1>
+
+    <% @member_posts.each do |post| %>
+     
+      <p> Posted by <%= post.member.first_name %> </p>
+      <% if post.profile_image.nil? %>
+         <%= "No Image." %> </br>
+      <% else %>
+        <%= image_tag attachment_url(post, :profile_image, :fill, 400, 400) %> </br>
+      <% end %>
+        
+      <h4> Caption: <%= post.caption %> </h4>
+      
+      <p>
+        <%= link_to 'Show', post %>
+        <%= link_to 'Edit', edit_post_path(post) %>
+        <%= link_to 'Destroy', post, method: :delete, data: { confirm:  'Are you sure?' } %> </br>
+        ----------------------------------------
+      </p>
+      
+    <% end %>
+  

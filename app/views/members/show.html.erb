@@ -1,0 +1,46 @@
+<p id="notice"><%= notice %></p>
+
+    <% if @member.avatar.nil? %>
+          <p> <%= @member.first_name.capitalize %> has no avatar image </p>
+        <br>
+          <% else %>
+            <p><%= image_tag attachment_url(@member, :avatar, :fill, 150, 150, format: "jpg") %>
+            </p>
+          <% end %>
+  <table>
+    <tbody>
+      </br>
+        <td>  
+            <strong>Member: </strong>
+            <%= @member.first_name.capitalize %> 
+            <%= @member.last_name.capitalize %>
+        </td> 
+      </br>
+        <td>  
+          <strong>Username: </strong>
+            <%= @member.username %>
+        </td> 
+      </br>
+        <td>  
+          <strong>Email: </strong>
+            <%= @member.email %>
+        </td> 
+      </br>
+        <td>
+          <strong>Mobile No.: </strong>
+            <%= @member.mobile_phone %>
+        </td> 
+      </br>
+    </tbody>
+  </table>
+<%= link_to 'Edit', edit_member_path(@member) %> |
+<%= link_to 'Back', members_path %> |
+<%= link_to "Create New Post for #{@member.first_name.capitalize}", new_post_path %>
+
+
+
+
+
+
+
+

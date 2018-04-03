@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<h1>All Members</h1>
+
+<% @members.each do |member| %>
+      <% if member.avatar.nil? %>
+        <p>
+          <%= member.first_name.capitalize %> has no avatar image 
+        </p> <br>
+      <% else %>
+        <p> 
+          <%= image_tag attachment_url(member, :avatar, :fill, 150, 150, format: "jpg") %>
+        </p> </br>
+      <% end %> 
+
+      <p> 
+        Name :      <%= member.first_name.capitalize %> 
+                    <%= member.last_name.capitalize %> </br>
+        Username:   <%= member.username %> </br>
+        Email:      <%= member.email %> </br>
+        Mobile No.: <%= member.mobile_phone %> 
+      </p>
+    
+      <p>
+      <%= link_to 'Show Member', member %> | 
+      <%= link_to 'Edit', edit_member_path(member) %> <br>
+     
+      <%= link_to "Create New Post", new_post_path %> <br>
+      <%= link_to "Destroy #{member.first_name.capitalize}", member, method: :delete, data: { confirm: 'Are you sure?' } %> </br>
+       ---------------------------------------- </p>
+    <% end %>
+  
+
+<br>
+
+<%= link_to 'Add member', new_member_path %>
